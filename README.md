@@ -1,1 +1,2 @@
-# viva_1
+chmod +x build.sh
+./build.sh
