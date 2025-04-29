@@ -1,0 +1,14 @@
+node {
+    stage('Clone Repository') {
+        git url: 'https://github.com/your-username/html-deploy.git'
+    }
+
+    stage('Deploy to XAMPP') {
+        def xamppPath = '/opt/lampp/htdocs/'  // 🔁 Change this for Windows if needed
+        sh "cp -v *.html ${xamppPath}"
+    }
+
+    stage('Post-Deployment') {
+        echo "Deployment complete. Visit http://localhost to view the site."
+    }
+}
