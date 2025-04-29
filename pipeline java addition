@@ -1,0 +1,23 @@
+pipeline {
+    agent any
+    stages {
+        stage('Checkout') {
+            steps {
+                // Checks out source code from the configured SCM
+                checkout scm
+            }
+        }
+        stage('Build') {
+            steps {
+                // Compile the Java code
+                sh 'javac Addition.java'
+            }
+        }
+        stage('Test') {
+            steps {
+                // Run the compiled program
+                sh 'java Addition'
+            }
+        }
+    }
+}
