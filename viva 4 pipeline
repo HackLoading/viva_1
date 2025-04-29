@@ -1,11 +1,12 @@
 node {
     stage('Clone Repository') {
-        git url: 'https://github.com/your-username/html-deploy.git'
+        git branch: 'main', url: 'https://github.com/HackLoading/viva_1.git'
+
     }
 
     stage('Deploy to XAMPP') {
-        def xamppPath = '/opt/lampp/htdocs/'  // 🔁 Change this for Windows if needed
-        sh "cp -v *.html ${xamppPath}"
+        def xamppPath = 'C:\\xampp\\htdocs\\'
+        bat "copy *.html ${xamppPath}"
     }
 
     stage('Post-Deployment') {
